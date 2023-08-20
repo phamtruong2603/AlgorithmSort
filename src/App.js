@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import {
   bubbleSort,
@@ -50,6 +50,10 @@ function App() {
     setArrString(randomArray(1000))
   }
 
+  useEffect(() => {
+    setArrString(randomArray(1000))
+  },[])
+
   const sortArray = () => {
     const time = new Date()
     switch (sort) {
@@ -97,7 +101,7 @@ function App() {
         </div>
 
         <div>
-          <h3>Thời gian chạy: {timeRun}</h3>
+          <h4>Thời gian chạy: {timeRun}</h4>
           {arrStringSort.map((arr, index) => <p key={index}>{arr}</p>)}
         </div>
       </div>
